@@ -1,0 +1,63 @@
+<html>
+ <head>
+  <meta http-equiv="Content-Type" content="text/html"; charset="windows-1251">
+  <link rel="stylesheet" href="index.css" type="text/css">
+  <script type="text/javascript" src="jCanvaScript.1.5.15.min.js"> </script>
+  <!--òåñòèì ëèáó-->
+	<script type="text/javascript">
+		function shootAnima(canvas_1)
+		{
+			jc('#shoot')
+				.animate({x:400,y:200,color:'#00ff00'},500);
+		}	
+        function simpleScene()
+        {
+			var sceen = document.getElementById('canvas_1');
+			sceen.width  = 500;
+			sceen.height = 350;
+			var backgr=new Image();
+	        backgr.src="image/background.jpg";
+			var patron=new Image();
+			patron.src="image/patron.jpg";
+			var pol = new Image();
+			pol.src="image/pol.jpg";
+	        backgr.onload=function(){
+	            //initialization by canvas id
+	            jc.start('canvas_1',true);
+	            //than we can draw some object
+	            //(see 'objects' in the left navigation menu)
+				jc.image(backgr,0,0,500,350);
+				jc.image(patron,100,200,60,45)
+					.id('shoot')
+				jc.image(pol,0,300,500,50);
+				jc.line([[50,300],[100,100],[100,300]],'rgba(12,253,65,0.9)',1);
+				jc.line([[400,300],[400,150],[450,300]],'rgba(0,0,65,0.9)',1);
+	            //we can create another object and use some function
+	            //(see more in 'functions')
+				
+	            //and we need to redraw canvas in the end
+	            jc.start('canvas_1');
+			}
+        }
+      </script>
+  <title>êàíâà ñ ëèáîé</title>
+ </head>
+ <body onload="simpleScene()">
+	<div id="container_main">
+		<div id="head_block">
+			<img src="image/head.jpg" id="head_img">
+		</div>
+		<div id="menu_block">
+		</div>
+		<div id="content_block">
+			<h1 onClick="shootAnima()">Canvas íà÷àëî</h1>
+				<br/>
+			<canvas id="canvas_1">
+			</canvas>
+		</div>
+		<div id="footer_block">
+			<h1>Ïîäâàë</h1>
+		</div>
+	</div>
+ </body>
+</html>
